@@ -34,7 +34,7 @@ class Card
   attr_reader :value, :suit
 
   def initialize(value, suit)
-    @value = value
-    @suit = suit
+    Card.get_values.include?(value) ? @value = value : raise(ArgumentError)
+    Card.get_suits.include?(suit) ? @suit = suit : raise(ArgumentError)
   end
 end
